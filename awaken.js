@@ -1,7 +1,5 @@
-
-
-const express = require('express');
-const axios = require('axios');
+const express = require("express");
+const axios = require("axios");
 const app = express();
 
 const sites = [
@@ -29,7 +27,7 @@ const sites = [
     name: "Ticketer Koyeb",
     url: "https://ticketer-captjay.koyeb.app",
   },
-]
+];
 
 async function keepAwake() {
   for (const site of sites) {
@@ -42,15 +40,14 @@ async function keepAwake() {
   }
 }
 
-
-app.get('/', async (req, res) => {
+app.get("/", async (req, res) => {
   await keepAwake();
-  res.send('Awake requests sent to all sites.');
+  res.send("Awake requests sent to all sites.");
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  setInterval(keepAwake, 600000);
+  setInterval(keepAwake, 60000);
+  console.log("All Servers Awake");
 });
