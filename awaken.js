@@ -48,6 +48,6 @@ app.get("/", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  setInterval(keepAwake, 60000);
+  setInterval(keepAwake, 600000);
   console.log("All Servers Awake");
 });
